@@ -4,5 +4,8 @@
  */
 public class OthelloRunner
 {
-    
+    public static void main(String[] args)
+    {
+        System.out.println("MEME ME DADDY");
+    }
 }// ends OthelloRunner class

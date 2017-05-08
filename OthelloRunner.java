@@ -16,7 +16,7 @@ public class OthelloRunner extends JFrame
     // instance variables
     // Jpanel object that you put containers in
     JPanel myPanel = new JPanel();
-    
+
     // images for the buttons, icons in the folder of projectfile
     static ImageIcon redCircle = new ImageIcon("images/redCircle.jpg", "Red");
     static ImageIcon blackCircle = new ImageIcon("images/blackCircle.jpg", "Black");
@@ -24,7 +24,17 @@ public class OthelloRunner extends JFrame
     // constructors
     OthelloRunner()
     {
-        System.out.println("Daddy meme");
+        System.out.println("daad? or nah");
     }
     // methods
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param 
+     * @return 
+     */
+    public void sampleMethod()
+    {
+        // put your code here
+    }
 }// ends OthelloRunner class

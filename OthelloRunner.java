@@ -22,5 +22,9 @@ public class OthelloRunner extends JFrame
     static ImageIcon blackCircle = new ImageIcon("images/blackCircle.jpg", "Black");
     static ImageIcon noCircle = new ImageIcon("images/noCircle.jpg", "No");
     // constructors
+    OthelloRunner()
+    {
+        System.out.println("Daddy meme");
+    }
     // methods
 }// ends OthelloRunner class

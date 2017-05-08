@@ -24,7 +24,7 @@ public class OthelloRunner extends JFrame
     // constructors
     OthelloRunner()
     {
-        System.out.println("daad?");
+        System.out.println("daad? or nah");
     }
     // methods
 }// ends OthelloRunner class

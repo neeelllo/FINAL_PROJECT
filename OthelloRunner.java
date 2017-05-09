@@ -24,17 +24,18 @@ public class OthelloRunner extends JFrame
     // constructors
     OthelloRunner()
     {
-        System.out.println("daad? or nah");
-    }
+        
+    }//Ends OthelloRunner() constructor
     // methods
     /**
-     * An example of a method - replace this comment with your own
+     * Sandwich - Scans the grid for all possible affected pieces and changes 
+     * them if all apply to the requirments
      *
-     * @param 
-     * @return 
+     * @param - recieves the coordinates of the placed piece
+     * @return - changes all affected pieces
      */
-    public void sampleMethod()
+    public void sandwich()
     {
-        // put your code here
-    }
+        
+    }//Ends () method
 }// ends OthelloRunner class

@@ -25,6 +25,7 @@ public class OthelloRunner extends JFrame
     {
 
     }//Ends OthelloRunner() constructor
+    
     // methods
     /**
      * Method checkGrid
@@ -50,21 +51,6 @@ public class OthelloRunner extends JFrame
         else
         {
             gridFull = true;
-        }
-    }
-
-    public void start()
-    {
-        while(true)
-        {
-            // set four peices in middle to start pos
-            // update potential
-            // lets black player go first
-            // update board potential
-            // check win state
-            // then lets red go
-            // update again
-            // check win state
         }
     }
 

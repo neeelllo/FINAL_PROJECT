@@ -31,7 +31,7 @@ public class OthelloRunner extends JFrame
      * Method checkGrid
      *
      */
-    void checkGrid()
+    public void checkWin()
     {
         int gOpen = 64;
         for(int row = 0; row <= board.length; row++)
@@ -41,38 +41,58 @@ public class OthelloRunner extends JFrame
                 if(board[row][col] != 0)
                 {
                     gOpen--;
-                }
-            }
-        }
+                }//Ends if statement
+            }//Ends for loop
+        }//Ends for loop
+        
         if(gOpen >= 1)
         {
             gridFull = false;
-        }
+        }//Ends if statement
         else
         {
             gridFull = true;
-        }
-    }
+        }//Ends else statement
+    }//Ends checkWin() method
 
     public void start()
     {
         // set four peices in middle to start pos
         while(true)
-        {            
-            // update for blacks potential
+        {
             // set four peices in middle to start pos
             board[4][4] = 1;    //Places white piece
             board[4][5] = 2;    //Places red piece
             board[5][4] = 1;    //Places while piece
             board[5][5] = 2;    //Places red piece
-            // update potential
+            
+            // update for blacks potential moves
+            possible();
+            
+            // update potential flips
+            sandwich(); //Recieves the current move made
+
             // check win state
-            // update for reds
-            // then lets red go
-            // update again
-            // check win state
-        }
-    }
+            checkWin();
+            //Update for reds potential
+            
+            //Reds turn
+            
+            //Update again
+            checkWin();
+        }//Ends while loop
+    }//Ends start() method
+    
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void possible()
+    {
+        
+    }//Ends possible() method
 
     /**
      * Sandwich - Scans the grid for all possible affected pieces and changes 
@@ -83,6 +103,8 @@ public class OthelloRunner extends JFrame
      */
     public void sandwich(int x, int y)
     {
+        int currentColor = 1;
+        board[x][y] = currentColor;
         while(gridFull == false)
         {
             for(int c = -1; c <= 1; c++)
@@ -92,9 +114,9 @@ public class OthelloRunner extends JFrame
                     if(board[x + c][y + r] == 0)
                     {
 
-                    }
-                }
-            }
-        }
+                    }//Ends if statement
+                }//Ends for loop
+            }//Ends for loop
+        }//Ends while loop
     }//Ends () method
 }// ends OthelloRunner class

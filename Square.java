@@ -21,6 +21,8 @@ public class Square extends JButton
     
     private JButton button;
     
+    Insets noMargin;
+    
     // sonstructor
     public Square(int s)
     {
@@ -28,23 +30,40 @@ public class Square extends JButton
         switch(state)
         {
             case 0:
-            this.button = new JButton("Empty Square", noCircle);
+                this.button = new JButton("Empty Square", noCircle);
+                
             break;
             case 1:
-            this.button = new JButton("Possible Square", possibleCircle);
+                this.button = new JButton("Possible Square", possibleCircle);
             break;
             case 2:
-            this.button = new JButton("Black Square", blackCircle);
+                this.button = new JButton("Black Square", blackCircle);
             break;
             case 3:
-            this.button = new JButton("Red Square", redCircle);
+                this.button = new JButton("Red Square", redCircle);
             break;
         }// ends switch
+        
+        noMargin = new Insets(0, 0, 0, 0);
+        button.setMargin(noMargin);
+        
     }// constructor
     
     // method
-    public void changeState()
+    public void changeState(int s)
     {
-        
+        if(s != 0 || s != 1 || s != 2 || s != 3)
+        {
+            System.out.println("STATE CHANGE INVALID");
+        }         
+        else
+        {
+            state = s;
+        }
     }// ends changeState method
+    
+    public int getState()
+    {
+        return state;
+    }// ends getState method
 }// ends Square class

@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.ImageIcon;
 import java.awt.*;
+import javax.swing.JOptionPane;
 /**
  * Leonelle Lerios <3 David Corona :: Period 1/3/5 :: 5.8.17
  * Square class
@@ -31,16 +32,43 @@ public class Square extends JButton
         {
             case 0:
                 this.button = new JButton("Empty Square", noCircle);
-                
+                button.addActionListener(new ActionListener()
+                {
+                   public void actionPerformed(ActionEvent e)
+                   {
+                       JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                   }
+                });// ends action listenter constructor
             break;
             case 1:
                 this.button = new JButton("Possible Square", possibleCircle);
+                button.addActionListener(new ActionListener()
+                {
+                   public void actionPerformed(ActionEvent e)
+                   {
+                       // insert code for changing values
+                   }
+                });// ends action listenter constructor
             break;
             case 2:
                 this.button = new JButton("Black Square", blackCircle);
+                button.addActionListener(new ActionListener()
+                {
+                   public void actionPerformed(ActionEvent e)
+                   {
+                       JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                   }
+                });// ends action listenter constructor
             break;
             case 3:
                 this.button = new JButton("Red Square", redCircle);
+                button.addActionListener(new ActionListener()
+                {
+                   public void actionPerformed(ActionEvent e)
+                   {
+                       JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                   }
+                });// ends action listenter constructor
             break;
         }// ends switch
         

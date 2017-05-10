@@ -15,12 +15,7 @@ public class OthelloRunner extends JFrame
 {
     // instance variables
     // Jpanel object that you put containers in
-    JPanel myPanel = new JPanel();
-
-    // images for the buttons, icons in the folder of projectfile
-    static ImageIcon redCircle = new ImageIcon("images/redCircle.jpg", "Red");
-    static ImageIcon blackCircle = new ImageIcon("images/blackCircle.jpg", "Black");
-    static ImageIcon noCircle = new ImageIcon("images/noCircle.jpg", "No");
+    JPanel myPanel = new JPanel();   
 
     int [][] board = new int [8][8];
     boolean gridFull = false;

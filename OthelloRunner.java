@@ -25,7 +25,7 @@ public class OthelloRunner extends JFrame
     {
 
     }//Ends OthelloRunner() constructor
-    
+
     // methods
     /**
      * Method checkGrid
@@ -38,7 +38,7 @@ public class OthelloRunner extends JFrame
         {
             for(int col = 0; col <= board.length; col++)
             {
-                if(board[row][col] == 1)
+                if(board[row][col] != 0)
                 {
                     gOpen--;
                 }
@@ -59,6 +59,10 @@ public class OthelloRunner extends JFrame
         while(true)
         {
             // set four peices in middle to start pos
+            board[4][4] = 1;    //Places white piece
+            board[4][5] = 2;    //Places red piece
+            board[5][4] = 1;    //Places while piece
+            board[5][5] = 2;    //Places red piece
             // update potential
             // lets black player go first
             // update board potential
@@ -68,7 +72,7 @@ public class OthelloRunner extends JFrame
             // check win state
         }
     }
-    
+
     /**
      * Sandwich - Scans the grid for all possible affected pieces and changes 
      * them if all apply to the requirments

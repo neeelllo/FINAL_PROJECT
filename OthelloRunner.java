@@ -60,14 +60,12 @@ public class OthelloRunner extends JFrame
         while(true)
         {            
             // update for blacks potential
-        
             // set four peices in middle to start pos
             board[4][4] = 1;    //Places white piece
             board[4][5] = 2;    //Places red piece
             board[5][4] = 1;    //Places while piece
             board[5][5] = 2;    //Places red piece
             // update potential
-            // lets black player go first
             // check win state
             // update for reds
             // then lets red go

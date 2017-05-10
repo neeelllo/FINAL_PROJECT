@@ -56,6 +56,7 @@ public class OthelloRunner extends JFrame
 
     public void start()
     {
+        
         // set four peices in middle to start pos
         while(true)
         {            

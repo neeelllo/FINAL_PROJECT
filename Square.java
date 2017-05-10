@@ -94,4 +94,16 @@ public class Square extends JButton
     {
         return state;
     }// ends getState method
+    
+    public boolean equals(int i)
+    {
+        if(state == i)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }// ends Square class

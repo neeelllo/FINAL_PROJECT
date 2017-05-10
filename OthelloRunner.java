@@ -12,18 +12,35 @@ import java.io.*;   //file reading
  * This is going to be the Othello game a.k.a. Reversi
  */
 public class OthelloRunner extends JFrame
-{
-    // instance variables
-    // Jpanel object that you put containers in
-    JPanel myPanel = new JPanel();   
+{    
+    // Jpanel object that you put containers in, like buttons and stuff
+    JPanel myPanel = new JPanel();
 
-    int [][] board = new int [8][8];
-    boolean gridFull = false;
+    // 2D array of the Square objects, Square objects are basically JButtons but specific to the class
+    Square [][] board = new Square [8][8];
+    boolean gridFull = false;   // win condition to end game
 
     // constructors
     OthelloRunner()
     {
-
+        // sets size of the window
+        setSize(600, 660);
+        // sets the Title at the top of the window
+        setTitle("Othello Java");
+        // sets the frame to not be resizeable by the user
+        setResizable(false);
+        // puts the frame to the top left of the screen
+        setLocationRelativeTo(null);
+        // makes the close oporation when you press the red X to close the program
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // makes the window visable
+        setVisible(true);
+        
+        createGrid();   // method creates the grid and adds the square objects to the panel
+        
+        myPanel.setVisible(true);   // makes the panel visble
+        add(myPanel);           // adds the panel to the frame
+        
     }//Ends OthelloRunner() constructor
 
     // methods
@@ -38,7 +55,7 @@ public class OthelloRunner extends JFrame
         {
             for(int col = 0; col <= board.length; col++)
             {
-                if(board[row][col] != 0)
+                if(board[row][col].equals(0))
                 {
                     gOpen--;
                 }//Ends if statement
@@ -56,22 +73,21 @@ public class OthelloRunner extends JFrame
     }//Ends checkWin() method
 
     public void start()
-    {
-        
+    {        
         // set four peices in middle to start pos
         while(true)
         {
             // set four peices in middle to start pos
-            board[4][4] = 1;    //Places white piece
-            board[4][5] = 2;    //Places red piece
-            board[5][4] = 1;    //Places while piece
-            board[5][5] = 2;    //Places red piece
+            board[4][4].changeState(2);    //Places white piece
+            board[4][5].changeState(3);    //Places red piece
+            board[5][4].changeState(2);    //Places while piece
+            board[5][5].changeState(3);    //Places red piece
             
             // update for blacks potential moves
             possible();
             
             // update potential flips
-            sandwich(); //Recieves the current move made
+             //Recieves the current move made
 
             // check win state
             checkWin();
@@ -81,7 +97,7 @@ public class OthelloRunner extends JFrame
             
             //Update again
             checkWin();
-        }//Ends while loop
+        }//Ends while loop        
     }//Ends start() method
     
     /**
@@ -105,14 +121,14 @@ public class OthelloRunner extends JFrame
     public void sandwich(int x, int y)
     {
         int currentColor = 1;
-        board[x][y] = currentColor;
+        board[x][y].changeState(currentColor);
         while(gridFull == false)
         {
             for(int c = -1; c <= 1; c++)
             {
                 for(int r = -1; r <= 1; r++)
                 {
-                    if(board[x + c][y + r] == 0)
+                    if(board[x + c][y + r].equals(0))
                     {
 
                     }//Ends if statement
@@ -120,4 +136,16 @@ public class OthelloRunner extends JFrame
             }//Ends for loop
         }//Ends while loop
     }//Ends () method
+    
+    private void createGrid()
+    {
+        for(int r = 0; r <= board.length; r++)
+        {
+            for(int c = 0; c <= board.length; r++)
+            {
+                board[r][c] = new Square(0);
+                //board[r][c].setBounds();
+            }
+        }
+    }
 }// ends OthelloRunner class

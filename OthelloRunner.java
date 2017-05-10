@@ -65,7 +65,9 @@ public class OthelloRunner extends JFrame
                 for(int r = -1; r <= 1; r++)
                 {
                     if(board[x + c][y + r] == 0)
-                    {}
+                    {
+                    
+                    }
                 }
             }
         }

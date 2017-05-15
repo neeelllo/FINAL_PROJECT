@@ -106,4 +106,53 @@ public class Square extends JButton
             return false;
         }
     }
+    
+    public boolean isRed()
+    {
+        if(state == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }// ends isRed method
+    
+    public boolean isBlack()
+    {
+        if(state == 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }// ends isBlack method
+    
+    public boolean isEmpty()
+    {
+        if(state == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }// ends isEmpty method
+    
+    public boolean isPossible()
+    {
+        if(state == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }// ends isPossible method
+    
 }// ends Square class

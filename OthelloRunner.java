@@ -17,6 +17,7 @@ public class OthelloRunner extends JFrame
     // 2D array of the Square objects, Square objects are basically JButtons but specific to the class
     Square [][] board = new Square [8][8];
     boolean gridFull = false;   // win condition to end game
+    int currentColor = 2;
 
     // constructors
     OthelloRunner()
@@ -33,13 +34,13 @@ public class OthelloRunner extends JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // makes the window visable
         setVisible(true);
-        
+
         createGrid();   // method creates the grid and adds the square objects to the panel
-        
+
         myPanel.setVisible(true);   // makes the panel visble
         add(myPanel);           // adds the panel to the frame
         add(myMenu);            // ands the menuBar to the frame
-        
+
     }//Ends OthelloRunner() constructor
 
     // methods
@@ -60,7 +61,7 @@ public class OthelloRunner extends JFrame
                 }//Ends if statement
             }//Ends for loop
         }//Ends for loop
-        
+
         if(gOpen >= 1)
         {
             gridFull = false;
@@ -81,24 +82,24 @@ public class OthelloRunner extends JFrame
             board[4][5].changeState(3);    //Places red piece
             board[5][4].changeState(2);    //Places while piece
             board[5][5].changeState(3);    //Places red piece
-            
+
             // update for blacks potential moves
             possible();
-            
+
             // update potential flips
-             //Recieves the current move made
+            //Recieves the current move made
 
             // check win state
             checkWin();
             //Update for reds potential
-            
+
             //Reds turn
-            
+
             //Update again
             checkWin();
         }//Ends while loop        
     }//Ends start() method
-    
+
     /**
      * An example of a method - replace this comment with your own
      *
@@ -107,7 +108,25 @@ public class OthelloRunner extends JFrame
      */
     public void possible()
     {
-        
+        while(gridFull == false)
+        {
+            for(int x = 0; x <= 7; x++)
+            {
+                for(int y = 0; y <= 7; y++)
+                {
+                    for(int c = -1; c < 2; c++)
+                    {
+                        for(int r = -1; r <= 1; r++)
+                        {
+                            if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                            {
+                                sandwich(x,y);
+                            }//Ends if statement
+                        }//Ends for loop
+                    }//Ends for loop
+                }//Ends for loop
+            }//Ends for loop
+        }//Ends while loop
     }//Ends possible() method
 
     /**
@@ -127,15 +146,15 @@ public class OthelloRunner extends JFrame
             {
                 for(int r = -1; r <= 1; r++)
                 {
-                    if(board[x + c][y + r].equals(0))
+                    while(board[x + c][y + r].equals(board[x + c][y + r].enemyColor()))
                     {
-                        
+
                     }//Ends if statement
                 }//Ends for loop
             }//Ends for loop
         }//Ends while loop
     }//Ends () method
-    
+
     private void createGrid()
     {
         for(int r = 0; r <= board.length; r++)

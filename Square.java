@@ -155,4 +155,16 @@ public class Square extends JButton
         }
     }// ends isPossible method
     
+    public int enemyColor()
+    {
+        if(state == 2)
+        {
+            return 3;
+        }
+        else
+        {
+            return 2;
+        }
+    }//ends enemyColor
+    
 }// ends Square class

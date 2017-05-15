@@ -1,10 +1,7 @@
 import java.awt.Color;          // to change frame color
 import java.awt.event.*;        // actionlistnenters for the buttons
 import java.awt.*;              // for layout, insets
-import javax.swing.ImageIcon;   // change image icon of buttons
-import javax.swing.JButton;     // JFrame UI
-import javax.swing.JFrame;
-import javax.swing.JPanel;  
+import javax.swing.*;           // for a lot of things, mostly JFrame UI stuff
 import java.io.*;   //file reading
 /**
  * Leonelle Lerios :: Period 1/5 :: 5.8.17(Restart)
@@ -15,6 +12,7 @@ public class OthelloRunner extends JFrame
 {    
     // Jpanel object that you put containers in, like buttons and stuff
     JPanel myPanel = new JPanel();
+    JMenuBar myMenu = new JMenuBar();
 
     // 2D array of the Square objects, Square objects are basically JButtons but specific to the class
     Square [][] board = new Square [8][8];
@@ -40,6 +38,7 @@ public class OthelloRunner extends JFrame
         
         myPanel.setVisible(true);   // makes the panel visble
         add(myPanel);           // adds the panel to the frame
+        add(myMenu);            // ands the menuBar to the frame
         
     }//Ends OthelloRunner() constructor
 
@@ -130,7 +129,7 @@ public class OthelloRunner extends JFrame
                 {
                     if(board[x + c][y + r].equals(0))
                     {
-
+                        
                     }//Ends if statement
                 }//Ends for loop
             }//Ends for loop

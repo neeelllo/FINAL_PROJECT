@@ -74,6 +74,9 @@ public class OthelloRunner extends JFrame
 
     public void start()
     {        
+        // initilize grid of stuff
+        creatGrid();
+
         // set four peices in middle to start pos
         while(true)
         {
@@ -114,16 +117,58 @@ public class OthelloRunner extends JFrame
             {
                 for(int y = 0; y <= 7; y++)
                 {
-                    for(int c = -1; c < 2; c++)
+                    if(x == 0 && y == 0)
                     {
-                        for(int r = -1; r <= 1; r++)
+                        for(int c = 0; c < 2; c++)
                         {
-                            if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                            for(int r = 0; r <= 1; r++)
                             {
-                                sandwich(x,y);
-                            }//Ends if statement
+                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                {
+                                    sandwich(x,y);
+                                }//Ends if statement
+                            }//Ends for loop
                         }//Ends for loop
-                    }//Ends for loop
+                    }
+                    else if(x == 0)
+                    {
+                        for(int c = 0; c < 2; c++)
+                        {
+                            for(int r = -1; r <= 1; r++)
+                            {
+                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                {
+                                    sandwich(x,y);
+                                }//Ends if statement
+                            }//Ends for loop
+                        }//Ends for loop
+                    }
+                    else if(y == 0)
+                    {
+                        for(int c = -1; c < 2; c++)
+                        {
+                            for(int r = 0; r <= 1; r++)
+                            {
+                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                {
+                                    sandwich(x,y);
+                                }//Ends if statement
+                            }//Ends for loop
+                        }//Ends for loop
+                    }
+                    else
+                    {
+                        for(int c = -1; c < 2; c++)
+                        {
+                            for(int r = -1; r <= 1; r++)
+                            {
+                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                {
+                                    sandwich(x,y);
+                                }//Ends if statement
+                            }//Ends for loop
+                        }//Ends for loop
+                    }
                 }//Ends for loop
             }//Ends for loop
         }//Ends while loop
@@ -146,9 +191,9 @@ public class OthelloRunner extends JFrame
             {
                 for(int r = -1; r <= 1; r++)
                 {
-                    while(board[x + c][y + r].equals(board[x + c][y + r].enemyColor()))
+                    while((x+c) > 0 && (x+c) < 7 && (y+r) > 0 && (y+r) < 7 && board[x + c][y + r].equals(board[x + c][y + r].enemyColor()))
                     {
-
+                        sandwich((x+c),(y+r));
                     }//Ends if statement
                 }//Ends for loop
             }//Ends for loop
@@ -157,12 +202,12 @@ public class OthelloRunner extends JFrame
 
     private void createGrid()
     {
-        for(int r = 0; r <= board.length; r++)
+        for(int r = 0; r < board.length; r++)
         {
-            for(int c = 0; c <= board.length; r++)
+            for(int c = 0; c < board.length; c++)
             {
                 board[r][c] = new Square(0);
-                //board[r][c].setBounds();
+                board[r][c].setBounds();
             }
         }
     }

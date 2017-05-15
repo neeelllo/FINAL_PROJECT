@@ -207,7 +207,7 @@ public class OthelloRunner extends JFrame
             for(int c = 0; c < board.length; c++)
             {
                 board[r][c] = new Square(0);
-                board[r][c].setBounds();
+                board[r][c].setBounds(600,220);
             }
         }
     }

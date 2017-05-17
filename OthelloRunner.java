@@ -129,7 +129,7 @@ public class OthelloRunner extends JFrame
                                 }//Ends if statement
                             }//Ends for loop
                         }//Ends for loop
-                    }
+                    }//Ends if statement
                     else if(x == 0)
                     {
                         for(int c = 0; c < 2; c++)
@@ -142,7 +142,7 @@ public class OthelloRunner extends JFrame
                                 }//Ends if statement
                             }//Ends for loop
                         }//Ends for loop
-                    }
+                    }//Ends else if statement
                     else if(y == 0)
                     {
                         for(int c = -1; c < 2; c++)
@@ -155,7 +155,7 @@ public class OthelloRunner extends JFrame
                                 }//Ends if statement
                             }//Ends for loop
                         }//Ends for loop
-                    }
+                    }//Ends else if statement
                     else
                     {
                         for(int c = -1; c < 2; c++)
@@ -168,7 +168,7 @@ public class OthelloRunner extends JFrame
                                 }//Ends if statement
                             }//Ends for loop
                         }//Ends for loop
-                    }
+                    }//Ends else
                 }//Ends for loop
             }//Ends for loop
         }//Ends while loop
@@ -207,9 +207,9 @@ public class OthelloRunner extends JFrame
             for(int c = 0; c < board.length; c++)
             {
                 board[r][c] = new Square(0);
-                board[r][c].setBounds(60*r,60*c,60,60);
+                board[r][c].setBounds((60*r),(60*c),60,60);
                 board[r][c].setVisible(true);
-            }
-        }
-    }
+            }//Ends for loop
+        }//Ends for loop
+    }//Ends createGrid() method
 }// ends OthelloRunner class

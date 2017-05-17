@@ -18,10 +18,13 @@ public class OthelloRunner extends JFrame
     Square [][] board = new Square [8][8];
     boolean gridFull = false;   // win condition to end game
     int currentColor = 2;
+    
+    Insets noMargin = new Insets(0, 0, 0, 0);
 
     // constructors
     OthelloRunner()
     {
+        myPanel.setLayout(null);
         // sets size of the window
         setSize(600, 660);
         // sets the Title at the top of the window
@@ -33,14 +36,16 @@ public class OthelloRunner extends JFrame
         // makes the close oporation when you press the red X to close the program
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // makes the window visable
-        setVisible(true);
-
+        
+        myPanel.setSize(600, 660);
+        
         createGrid();   // method creates the grid and adds the square objects to the panel
-
-        myPanel.setVisible(true);   // makes the panel visble
+        
+        myPanel.setBackground(Color.blue);
         add(myPanel);           // adds the panel to the frame
         add(myMenu);            // ands the menuBar to the frame
-
+        myPanel.setVisible(true);   // makes the panel visble
+        setVisible(true);
     }//Ends OthelloRunner() constructor
 
     // methods
@@ -77,6 +82,7 @@ public class OthelloRunner extends JFrame
         // initilize grid of stuff
         createGrid();
 
+        
         // set four peices in middle to start pos
         while(true)
         {
@@ -208,7 +214,13 @@ public class OthelloRunner extends JFrame
             {
                 board[r][c] = new Square(0);
                 board[r][c].setBounds((60*r),(60*c),60,60);
+                board[r][c].setMargin(noMargin);                
+                
+                myPanel.add(board[r][c]);
                 board[r][c].setVisible(true);
+                
+                System.out.println("RIP IN PEACE 2017" + r + " " + c);
+                
             }//Ends for loop
         }//Ends for loop
     }//Ends createGrid() method

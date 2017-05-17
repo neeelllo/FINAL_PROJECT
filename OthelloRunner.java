@@ -75,7 +75,7 @@ public class OthelloRunner extends JFrame
     public void start()
     {        
         // initilize grid of stuff
-        creatGrid();
+        createGrid();
 
         // set four peices in middle to start pos
         while(true)
@@ -207,7 +207,7 @@ public class OthelloRunner extends JFrame
             for(int c = 0; c < board.length; c++)
             {
                 board[r][c] = new Square(0);
-                board[r][c].setBounds(600,220);
+                board[r][c].setBounds(600,220,,);
             }
         }
     }

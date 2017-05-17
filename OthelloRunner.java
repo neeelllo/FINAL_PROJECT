@@ -136,7 +136,7 @@ public class OthelloRunner extends JFrame
                         {
                             for(int r = -1; r <= 1; r++)
                             {
-                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                if(x+c < 8 && board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
                                 {
                                     sandwich(x,y);
                                 }//Ends if statement
@@ -149,7 +149,7 @@ public class OthelloRunner extends JFrame
                         {
                             for(int r = 0; r <= 1; r++)
                             {
-                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                if(y+r < 8 && board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
                                 {
                                     sandwich(x,y);
                                 }//Ends if statement
@@ -162,7 +162,7 @@ public class OthelloRunner extends JFrame
                         {
                             for(int r = -1; r <= 1; r++)
                             {
-                                if(board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
+                                if(x+c < 8 && y+r < 8 &&board[x+c][y+r].isEmpty() && board[x+c][y+r].getState() != board[x+c][y+r].enemyColor())    //Checks for otherpla
                                 {
                                     sandwich(x,y);
                                 }//Ends if statement
@@ -207,7 +207,8 @@ public class OthelloRunner extends JFrame
             for(int c = 0; c < board.length; c++)
             {
                 board[r][c] = new Square(0);
-                board[r][c].setBounds(600,220,,);
+                board[r][c].setBounds(60*r,60*c,60,60);
+                board[r][c].setVisible(true);
             }
         }
     }

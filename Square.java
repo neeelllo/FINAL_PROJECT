@@ -80,7 +80,7 @@ public class Square extends JButton
     // method
     public void changeState(int s)
     {
-        if(s != 0 || s != 1 || s != 2 || s != 3)
+        if(s < 0 || s > 3)
         {
             System.out.println("STATE CHANGE INVALID");
         }         
@@ -157,14 +157,16 @@ public class Square extends JButton
     
     public int enemyColor()
     {
-        if(state == 2)
+        int enemy = 0;
+        if(isBlack())
         {
-            return 3;
+            enemy = 3;
         }
-        else
+        else if(isRed())
         {
-            return 2;
+            enemy = 2;
         }
+        return enemy;
     }//ends enemyColor
     
 }// ends Square class

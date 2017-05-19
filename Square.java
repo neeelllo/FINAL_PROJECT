@@ -37,7 +37,7 @@ public class Square extends JButton
                    public void actionPerformed(ActionEvent e)
                    {
                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                   }
+                   }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
             case 1:
@@ -47,7 +47,7 @@ public class Square extends JButton
                    public void actionPerformed(ActionEvent e)
                    {
                        // insert code for changing values
-                   }
+                   }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
             case 2:
@@ -57,7 +57,7 @@ public class Square extends JButton
                    public void actionPerformed(ActionEvent e)
                    {
                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                   }
+                   }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
             case 3:
@@ -67,7 +67,7 @@ public class Square extends JButton
                    public void actionPerformed(ActionEvent e)
                    {
                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                   }
+                   }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
         }// ends switch

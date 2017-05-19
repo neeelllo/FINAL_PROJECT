@@ -18,7 +18,7 @@ public class OthelloRunner extends JFrame
     Square [][] board = new Square [8][8];
     boolean gridFull = false;   // win condition to end game
     int currentColor = 2;
-    
+
     Insets noMargin = new Insets(0, 0, 0, 0);
 
     // constructors
@@ -36,11 +36,11 @@ public class OthelloRunner extends JFrame
         // makes the close oporation when you press the red X to close the program
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // makes the window visable
-        
+
         myPanel.setSize(600, 660);
-        
+
         createGrid();   // method creates the grid and adds the square objects to the panel
-        
+
         myPanel.setBackground(Color.blue);
         add(myPanel);           // adds the panel to the frame
         add(myMenu);            // ands the menuBar to the frame
@@ -55,6 +55,7 @@ public class OthelloRunner extends JFrame
      */
     public void checkWin()
     {
+        //Traverses through the 2D Array
         int gOpen = 64;
         for(int row = 0; row <= board.length; row++)
         {
@@ -67,6 +68,7 @@ public class OthelloRunner extends JFrame
             }//Ends for loop
         }//Ends for loop
 
+        //Checks for any open spaces
         if(gOpen >= 1)
         {
             gridFull = false;
@@ -77,12 +79,17 @@ public class OthelloRunner extends JFrame
         }//Ends else statement
     }//Ends checkWin() method
 
+    /**
+     * start - Makes sure that everything is passed and is displayed to the user
+     *
+     * @param  No parameters used
+     * @return    void- does not return
+     */
     public void start()
     {        
         // initilize grid of stuff
         createGrid();
 
-        
         // set four peices in middle to start pos
         while(true)
         {
@@ -110,19 +117,22 @@ public class OthelloRunner extends JFrame
     }//Ends start() method
 
     /**
-     * An example of a method - replace this comment with your own
+     * possible - Traverses through the grid for any spaces that are possible moves
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param  No parameters used
+     * @return    void- does not return
      */
     public void possible()
     {
+        //Checks grid
         while(gridFull == false)
         {
+            //Traverses grid
             for(int x = 0; x <= 7; x++)
             {
                 for(int y = 0; y <= 7; y++)
                 {
+                    //Checks top left corner
                     if(x == 0 && y == 0)
                     {
                         for(int c = 0; c < 2; c++)
@@ -136,6 +146,8 @@ public class OthelloRunner extends JFrame
                             }//Ends for loop
                         }//Ends for loop
                     }//Ends if statement
+
+                    //Checks top row
                     else if(x == 0)
                     {
                         for(int c = 0; c < 2; c++)
@@ -149,6 +161,8 @@ public class OthelloRunner extends JFrame
                             }//Ends for loop
                         }//Ends for loop
                     }//Ends else if statement
+
+                    //Checks first colomn
                     else if(y == 0)
                     {
                         for(int c = -1; c < 2; c++)
@@ -162,6 +176,8 @@ public class OthelloRunner extends JFrame
                             }//Ends for loop
                         }//Ends for loop
                     }//Ends else if statement
+
+                    //Checks all around the buttons in the middle of the grid (not the edges)
                     else
                     {
                         for(int c = -1; c < 2; c++)
@@ -206,21 +222,27 @@ public class OthelloRunner extends JFrame
         }//Ends while loop
     }//Ends () method
 
+    /**
+     * createGrid - Creates a 2D array which is then displayed in the GUI
+     *
+     * @param  No parameters used
+     * @return    void - did not return
+     */
     private void createGrid()
     {
         for(int r = 0; r < board.length; r++)
         {
             for(int c = 0; c < board.length; c++)
             {
-                board[r][c] = new Square(0);
-                board[r][c].setBounds((60*r),(60*c),60,60);
+                board[r][c] = new Square(3);
+                board[r][c].setBounds((60*r)+60,(60*c)+120,60,60);
                 board[r][c].setMargin(noMargin);                
-                
+
                 myPanel.add(board[r][c]);
                 board[r][c].setVisible(true);
-                
-                System.out.println("RIP IN PEACE 2017" + r + " " + c);
-                
+
+                System.out.println("Checking " + r + " " + c);
+
             }//Ends for loop
         }//Ends for loop
     }//Ends createGrid() method

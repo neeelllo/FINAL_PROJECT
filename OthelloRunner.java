@@ -4,7 +4,9 @@ import java.awt.*;              // for layout, insets
 import javax.swing.*;           // for a lot of things, mostly JFrame UI stuff
 import java.io.*;   //file reading
 /**
- * Leonelle Lerios :: Period 1/5 :: 5.8.17(Restart)
+ * Leonelle Lerios :: Period 1/5
+ * David Corona :: Period 3/5
+ * 
  * Final Project (Othello)
  * This is going to be the Othello game a.k.a. Reversi
  */

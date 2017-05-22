@@ -121,6 +121,7 @@ public class OthelloRunner extends JFrame
 
             //Update again
             checkWin();
+            repaint();
         }//Ends while loop        
     }//Ends start() method
 

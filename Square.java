@@ -32,6 +32,7 @@ public class Square extends JButton
         {
             case 0:
             this.button = new JButton("Empty Square",noCircle);
+            button.setBackground(Color.blue);
             button.addActionListener(new ActionListener()
                 {
                     public void actionPerformed(ActionEvent e)
@@ -77,7 +78,6 @@ public class Square extends JButton
 
         noMargin = new Insets(0, 0, 0, 0);
         button.setMargin(noMargin);
-
     }// constructor
 
     // method

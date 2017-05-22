@@ -95,6 +95,7 @@ public class OthelloRunner extends JFrame
         {
             // set four peices in middle to start pos
             board[4][4].changeState(2);    //Places white piece
+            board[4][4].getState();
             board[4][4].setVisible(true);
             
             board[4][5].changeState(3);    //Places red piece
@@ -242,7 +243,6 @@ public class OthelloRunner extends JFrame
             for(int c = 0; c < board.length; c++)
             {
                 board[r][c] = new Square(0);
-                board[r][c].changeState(3);
                 board[r][c].setBounds((60*r)+60,(60*c)+120,60,60);
                 board[r][c].setMargin(noMargin);                
 

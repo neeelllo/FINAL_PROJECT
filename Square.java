@@ -13,17 +13,17 @@ public class Square extends JButton
 {
     // variables
     int state;  // 0 none, 1 possible, 2 black, 3 red
-    
+
     // images for the buttons, icons in the folder of projectfile
     static ImageIcon redCircle = new ImageIcon("images/redCircle.jpg", "Red");
     static ImageIcon blackCircle = new ImageIcon("images/blackCircle.jpg", "Black");
     static ImageIcon noCircle = new ImageIcon("images/noCircle.jpg", "No");
     static ImageIcon possibleCircle = new ImageIcon("images/possibleCircle.jpg", "Possible");
-    
+
     private JButton button;
-    
+
     Insets noMargin;
-    
+
     // sonstructor
     public Square(int s)
     {
@@ -31,52 +31,55 @@ public class Square extends JButton
         switch(state)
         {
             case 0:
-                this.button = new JButton("Empty Square", noCircle);
-                button.addActionListener(new ActionListener()
+            this.button = new JButton("Empty Square",noCircle);
+            button.addActionListener(new ActionListener()
                 {
-                   public void actionPerformed(ActionEvent e)
-                   {
-                       JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                   }//Ends actionPerformed() method
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                    }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
+
             case 1:
-                this.button = new JButton("Possible Square", possibleCircle);
-                button.addActionListener(new ActionListener()
+            this.button = new JButton("Possible Square", possibleCircle);
+            button.addActionListener(new ActionListener()
                 {
-                   public void actionPerformed(ActionEvent e)
-                   {
-                       // insert code for changing values
-                   }//Ends actionPerformed() method
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        // insert code for changing values
+                    }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
+
             case 2:
-                this.button = new JButton("Black Square", blackCircle);
-                button.addActionListener(new ActionListener()
+            this.button = new JButton("Black Square", blackCircle);
+            button.addActionListener(new ActionListener()
                 {
-                   public void actionPerformed(ActionEvent e)
-                   {
-                       JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                   }//Ends actionPerformed() method
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                    }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
+
             case 3:
-                this.button = new JButton("Red Square", redCircle);
-                button.addActionListener(new ActionListener()
+            this.button = new JButton("Red Square", redCircle);
+            button.addActionListener(new ActionListener()
                 {
-                   public void actionPerformed(ActionEvent e)
-                   {
-                       JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                   }//Ends actionPerformed() method
+                    public void actionPerformed(ActionEvent e)
+                    {
+                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                    }//Ends actionPerformed() method
                 });// ends action listenter constructor
             break;
         }// ends switch
-        
+
         noMargin = new Insets(0, 0, 0, 0);
         button.setMargin(noMargin);
-        
+
     }// constructor
-    
+
     // method
     public void changeState(int s)
     {
@@ -89,12 +92,12 @@ public class Square extends JButton
             state = s;
         }
     }// ends changeState method
-    
+
     public int getState()
     {
         return state;
     }// ends getState method
-    
+
     public boolean equals(int i)
     {
         if(state == i)
@@ -106,7 +109,7 @@ public class Square extends JButton
             return false;
         }
     }
-    
+
     public boolean isRed()
     {
         if(state == 3)
@@ -118,7 +121,7 @@ public class Square extends JButton
             return false;
         }
     }// ends isRed method
-    
+
     public boolean isBlack()
     {
         if(state == 2)
@@ -130,7 +133,7 @@ public class Square extends JButton
             return false;
         }
     }// ends isBlack method
-    
+
     public boolean isEmpty()
     {
         if(state == 0)
@@ -142,7 +145,7 @@ public class Square extends JButton
             return false;
         }
     }// ends isEmpty method
-    
+
     public boolean isPossible()
     {
         if(state == 1)
@@ -154,7 +157,7 @@ public class Square extends JButton
             return false;
         }
     }// ends isPossible method
-    
+
     public int enemyColor()
     {
         int enemy = 0;
@@ -168,5 +171,5 @@ public class Square extends JButton
         }
         return enemy;
     }//ends enemyColor
-    
+
 }// ends Square class

@@ -25,18 +25,26 @@ public class Square extends JButton
     Insets noMargin;
 
     // sonstructor
+    /**
+     * Square constructor
+     * @param: (int) s - this determins what state the button is
+     */
     public Square(int s)
     {
         state = s;        
         switch(state)
         {
+            // for each case it creates the button in different states
             case 0:
             this.button = new JButton("Empty Square",noCircle);
+            // this is suppose to change the background of the button to blue
             button.setBackground(Color.blue);
+            // adds an ActionListener and constructs it
             button.addActionListener(new ActionListener()
                 {
                     public void actionPerformed(ActionEvent e)
                     {
+                        // if someone presses this it will show a message panel that says invalid move
                         JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
                     }//Ends actionPerformed() method
                 });// ends action listenter constructor
@@ -81,6 +89,11 @@ public class Square extends JButton
     }// constructor
 
     // method
+    /**
+     * changeState() method
+     * changes the state of the method
+     * @param: (int) s      - determins the state to change to
+     */
     public void changeState(int s)
     {
         if(s < 0 || s > 3)
@@ -93,6 +106,10 @@ public class Square extends JButton
         }
     }// ends changeState method
 
+    /**
+     * getState() method
+     * @return: returns the state of the Square
+     */
     public int getState()
     {
         return state;

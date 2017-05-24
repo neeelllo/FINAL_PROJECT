@@ -117,12 +117,21 @@ public class OthelloRunner extends JFrame
 
             // check win state
             checkWin();
+            if(gridFull = true)
+            {
+                break;
+            }
+    
             //Update for reds potential
 
             //Reds turn
 
             //Update again
             checkWin();
+            if(gridFull = true)
+            {
+                break;
+            }
             repaint();
         }//Ends while loop        
     }//Ends start() method

@@ -171,5 +171,4 @@ public class Square extends JButton
         }
         return enemy;
     }//ends enemyColor
-
 }// ends Square class

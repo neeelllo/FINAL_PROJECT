@@ -254,10 +254,14 @@ public class OthelloRunner extends JFrame
         {
             for(int c = 0; c < board.length; c++)
             {
+                // creates the Square Object in the certain place
                 board[r][c] = new Square(0);
+                // setBounds changes the wxh of the button and it's placement
                 board[r][c].setBounds((60*r)+60,(60*c)+120,60,60);
+                // sets the margin of button
                 board[r][c].setMargin(noMargin);                
 
+                // adds the Square object to the JPanel which displays the button on the frame
                 myPanel.add(board[r][c]);
                 board[r][c].setVisible(true);
             }//Ends for loop

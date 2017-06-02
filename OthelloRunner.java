@@ -31,6 +31,7 @@ public class OthelloRunner extends JFrame
         setSize(600, 660);
         // sets the Title at the top of the window
         setTitle("Othello Java");
+        setVisible(true);
         // sets the frame to not be resizeable by the user
         setResizable(false);
         // puts the frame to the top left of the screen
@@ -40,8 +41,6 @@ public class OthelloRunner extends JFrame
         // makes the window visable
 
         myPanel.setSize(600, 660);
-
-        createGrid();   // method creates the grid and adds the square objects to the panel
 
         myPanel.setBackground(Color.blue);
         add(myPanel);           // adds the panel to the frame
@@ -96,18 +95,17 @@ public class OthelloRunner extends JFrame
         while(true)
         {
             // set four peices in middle to start pos
-            board[4][4].changeState(2);    //Places white piece
-            board[4][4].getState();
+            board[3][3].changeState(3);    //Places white piece
+            board[3][3].setVisible(true);
+
+            board[3][4].changeState(2);    //Places red piece
+            board[3][4].setVisible(true);
+
+            board[4][3].changeState(2);    //Places white piece
+            board[4][3].setVisible(true);
+
+            board[4][4].changeState(3);    //Places red piece
             board[4][4].setVisible(true);
-            
-            board[4][5].changeState(3);    //Places red piece
-            board[4][5].setVisible(true);
-            
-            board[5][4].changeState(2);    //Places white piece
-            board[5][4].setVisible(true);
-            
-            board[5][5].changeState(3);    //Places red piece
-            board[5][5].setVisible(true);
 
             // update for blacks potential moves
             possible();
@@ -121,7 +119,7 @@ public class OthelloRunner extends JFrame
             {
                 break;
             }
-    
+
             //Update for reds potential
 
             //Reds turn
@@ -255,11 +253,11 @@ public class OthelloRunner extends JFrame
             for(int c = 0; c < board.length; c++)
             {
                 // creates the Square Object in the certain place
-                board[r][c] = new Square(0);
+                board[r][c] = new Square();
                 // setBounds changes the wxh of the button and it's placement
                 board[r][c].setBounds((60*r)+60,(60*c)+120,60,60);
                 // sets the margin of button
-                board[r][c].setMargin(noMargin);                
+                board[r][c].setMargin(noMargin);
 
                 // adds the Square object to the JPanel which displays the button on the frame
                 myPanel.add(board[r][c]);

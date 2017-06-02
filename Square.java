@@ -1,4 +1,4 @@
-import javax.swing.JButton;
+import javax.swing.*;
 import java.awt.event.*;
 import java.io.*;
 import javax.swing.ImageIcon;
@@ -12,13 +12,14 @@ import javax.swing.JOptionPane;
 public class Square extends JButton
 {
     // variables
+    JPanel myPanel = new JPanel();
     int state;  // 0 none, 1 possible, 2 black, 3 red
 
     // images for the buttons, icons in the folder of projectfile
-    static ImageIcon redCircle = new ImageIcon("images/redCircle.jpg", "Red");
-    static ImageIcon blackCircle = new ImageIcon("images/blackCircle.jpg", "Black");
-    static ImageIcon noCircle = new ImageIcon("images/noCircle.jpg", "No");
-    static ImageIcon possibleCircle = new ImageIcon("images/possibleCircle.jpg", "Possible");
+    static ImageIcon redCircle = new ImageIcon("J:\\school\\Computer Science\\CS III H P3\\Programs\\finalProject\\images");
+    static ImageIcon blackCircle = new ImageIcon("J:\\school\\Computer Science\\CS III H P3\\Programs\\finalProject\\images");
+    static ImageIcon noCircle = new ImageIcon("J:\\school\\Computer Science\\CS III H P3\\Programs\\finalProject\\images");
+    static ImageIcon possibleCircle = new ImageIcon("J:\\school\\Computer Science\\CS III H P3\\Programs\\finalProject\\images", "Possible");
 
     private JButton button;
 
@@ -29,63 +30,25 @@ public class Square extends JButton
      * Square constructor
      * @param: (int) s - this determins what state the button is
      */
-    public Square(int s)
-    {
-        state = s;        
-        switch(state)
-        {
-            // for each case it creates the button in different states
-            case 0:
-            this.button = new JButton("Empty Square",noCircle);
-            // this is suppose to change the background of the button to blue
-            button.setBackground(Color.blue);
-            // adds an ActionListener and constructs it
-            button.addActionListener(new ActionListener()
+    public Square()
+    {    
+        button = new JButton();
+        button.setBackground(Color.white);
+        button.setIcon(noCircle);
+        myPanel.add(button);
+        add(myPanel);
+        // adds an ActionListener and constructs it
+        button.addActionListener(new ActionListener()
+            {
+                public void actionPerformed(ActionEvent e)
                 {
-                    public void actionPerformed(ActionEvent e)
-                    {
-                        // if someone presses this it will show a message panel that says invalid move
-                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                    }//Ends actionPerformed() method
-                });// ends action listenter constructor
-            break;
-
-            case 1:
-            this.button = new JButton("Possible Square", possibleCircle);
-            button.addActionListener(new ActionListener()
-                {
-                    public void actionPerformed(ActionEvent e)
-                    {
-                        // insert code for changing values
-                    }//Ends actionPerformed() method
-                });// ends action listenter constructor
-            break;
-
-            case 2:
-            this.button = new JButton("Black Square", blackCircle);
-            button.addActionListener(new ActionListener()
-                {
-                    public void actionPerformed(ActionEvent e)
-                    {
-                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                    }//Ends actionPerformed() method
-                });// ends action listenter constructor
-            break;
-
-            case 3:
-            this.button = new JButton("Red Square", redCircle);
-            button.addActionListener(new ActionListener()
-                {
-                    public void actionPerformed(ActionEvent e)
-                    {
-                        JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
-                    }//Ends actionPerformed() method
-                });// ends action listenter constructor
-            break;
-        }// ends switch
-
+                    // if someone presses this it will show a message panel that says invalid move
+                    JOptionPane.showMessageDialog(null, "INVALID MOVE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                }//Ends actionPerformed() method
+            });// ends action listenter constructor
+        validate();
         noMargin = new Insets(0, 0, 0, 0);
-        button.setMargin(noMargin);
+
     }// constructor
 
     // method
@@ -96,14 +59,79 @@ public class Square extends JButton
      */
     public void changeState(int s)
     {
-        if(s < 0 || s > 3)
+        if(s < 1 || s > 3)
         {
             System.out.println("STATE CHANGE INVALID");
         }         
         else
         {
             state = s;
+            switch(state)
+            {
+                // for each case it creates the button in different states
+                case 1:
+                System.out.println("1");
+                button.setBackground(Color.gray);
+                button.setIcon(possibleCircle);
+                button.setSize(60,60);
+                myPanel.add(button);
+                add(myPanel);
+                // adds an ActionListener and constructs it
+                button.addActionListener(new ActionListener()
+                    {
+                        public void actionPerformed(ActionEvent e)
+                        {
+                            // if someone presses this it will show a message panel that says invalid move
+                            JOptionPane.showMessageDialog(null, "IS POSSIBLE", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                        }//Ends actionPerformed() method
+                    });// ends action listenter constructor
+                button.setVisible(true);
+                validate();
+                break;
+
+                case 2:
+
+                System.out.println("2");
+                button.setBackground(Color.black);
+                button.setIcon(blackCircle);
+                button.setSize(60,60);
+                myPanel.add(button);
+                add(myPanel);
+                // adds an ActionListener and constructs it
+                button.addActionListener(new ActionListener()
+                    {
+                        public void actionPerformed(ActionEvent e)
+                        {
+                            // if someone presses this it will show a message panel that says invalid move
+                            JOptionPane.showMessageDialog(null, "IS Black", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                        }//Ends actionPerformed() method
+                    });// ends action listenter constructor
+                button.setVisible(true);
+                validate();
+                break;
+
+                case 3:
+                System.out.println("3");
+                button.setBackground(Color.red);
+                button.setIcon(redCircle);
+                button.setSize(60,60);
+                myPanel.add(button);
+                add(myPanel);
+                // adds an ActionListener and constructs it
+                button.addActionListener(new ActionListener()
+                    {
+                        public void actionPerformed(ActionEvent e)
+                        {
+                            // if someone presses this it will show a message panel that says invalid move
+                            JOptionPane.showMessageDialog(null, "IS RED", "INVALID MOVE", JOptionPane.ERROR_MESSAGE);
+                        }//Ends actionPerformed() method
+                    });// ends action listenter constructor
+                button.setVisible(true);
+                validate();
+                break;
+            }// ends switch
         }
+        button.setMargin(noMargin);
     }// ends changeState method
 
     /**
@@ -188,4 +216,5 @@ public class Square extends JButton
         }
         return enemy;
     }//ends enemyColor
+
 }// ends Square class
